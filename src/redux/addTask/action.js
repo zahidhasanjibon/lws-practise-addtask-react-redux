@@ -1,0 +1,6 @@
+export const ADDTASK = 'task/addtask'
+export const DELETETASK = 'task/deletetask'
+export const COMPLETEALLTASK = 'task/completealltask'
+export const CLEARALLCOMPLETEDTASK = 'task/clearallcompletedtask'
+export const COMPLETETASK = 'task/completetask'
+export const CHANGEPRIORITYCOLOR = 'task/changeprioritycolor'
