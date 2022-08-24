@@ -10,7 +10,6 @@ const initialState2 = {
 
         switch (action.type) {
             case STATUSCHANGE:
-                console.log(action.payload);
             return {...state,
                 status:action.payload
             }
@@ -18,7 +17,6 @@ const initialState2 = {
             case COLORCHANGE:
 
                     const {color,changeType} = action.payload
-                    console.log(color,changeType);
                         switch (changeType) {
                             case "add":
                                 return {...state,

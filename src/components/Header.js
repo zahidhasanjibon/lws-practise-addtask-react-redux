@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import tickImage from "../assets/images/double-tick.png";
 import noteImage from "../assets/images/notes.png";
 import plusImage from "../assets/images/plus.png";
-import { addTask, clearAllCompleteTask, completeAllTask } from "../redux/addTask/actionType";
+import { clearAllCompleteTask, completeAllTask } from "../redux/addTask/actionType";
+import postTodoMiddleware from "../redux/asyncTodo/postTodo";
 
 
 export default function Header() {
@@ -12,7 +13,7 @@ export default function Header() {
         const [inp,setInp] = useState()
     const handleAddTask = (e) => {
             e.preventDefault()
-            dispatch(addTask(inp))
+            dispatch(postTodoMiddleware(inp))
             setInp('')
     }    
     return (
@@ -39,6 +40,7 @@ export default function Header() {
                 </li>
                 <li onClick={() =>dispatch(clearAllCompleteTask()) } className="cursor-pointer">Clear completed</li>
             </ul>
+         
         </div>
     );
 }

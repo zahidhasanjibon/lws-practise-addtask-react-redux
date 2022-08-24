@@ -1,17 +1,7 @@
-import { ADDTASK, CHANGEPRIORITYCOLOR, CLEARALLCOMPLETEDTASK, COMPLETEALLTASK, COMPLETETASK, DELETETASK } from "./action"
+import { ADDTASK, CHANGEPRIORITYCOLOR, CLEARALLCOMPLETEDTASK, COMPLETEALLTASK, COMPLETETASK, DELETETASK, FETCHTODO } from "./action"
 
 const initialState = [
-                {
-                id:1,
-                text:'Learn javascript',
-                complete:false
-                 },
-                {
-                id:2,
-                text:'Learn Redux',
-                complete:false,
-                color:'green'
-                 }
+               
             ]
 
         const generateId = (allTask) => {
@@ -27,6 +17,10 @@ const initialState = [
     const taskReducer = (state=initialState,action) => {
 
         switch (action.type) {
+
+            case FETCHTODO:
+                return [...action.payload]
+
             case ADDTASK:
 
             return [...state,
@@ -47,7 +41,7 @@ const initialState = [
                     if(task.id === action.payload){
                         return {
                             ...task,
-                            complete:!task.complete
+                            completed:!task.completed
                         }
                     }
                     return {...task}
@@ -58,11 +52,11 @@ const initialState = [
 
                 return state.map((task) => {
                     return {...task,
-                    complete:true}
+                    completed:true}
                 })
 
                 case CLEARALLCOMPLETEDTASK:
-                    return state.filter((task) => !task.complete )
+                    return state.filter((task) => !task.completed )
 
 
                 case CHANGEPRIORITYCOLOR:

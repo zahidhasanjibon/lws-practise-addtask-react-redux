@@ -1,6 +1,30 @@
 
-import { ADDTASK, CHANGEPRIORITYCOLOR, CLEARALLCOMPLETEDTASK, COMPLETEALLTASK, COMPLETETASK, DELETETASK } from "./action";
+import { ADDTASK, CHANGEPRIORITYCOLOR, CLEARALLCOMPLETEDTASK, COMPLETEALLTASK, COMPLETETASK, DELETETASK, FETCHTODO } from "./action";
 
+export const fetchTodos = (todos) => {
+            return {
+                type:FETCHTODO,
+                payload:todos
+            }
+}
+// export const deleteTodos = (id) => {
+//             return {
+//                 type:DELETETODO,
+//                 payload:id
+//             }
+// }
+// export const updateTodos = (id,data) => {
+//             return {
+//                 type:UPDATETODO,
+//                 payload:{id,data}
+//             }
+// }
+// export const postTodos = (data) => {
+//             return {
+//                 type:UPDATETODO,
+//                 payload:data
+//             }
+// }
 export const addTask = (text) => {
             return {
                 type:ADDTASK,
